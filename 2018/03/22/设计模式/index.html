@@ -79,13 +79,20 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="一、 设计模式的分类大体可以分为三类：  创建型模式（5个）单例模式、原型模式、工厂方法模式、抽象工厂模式、建造者模式 结构性模式（7个）适配器模式、装饰器模式、代理模式、外观模式、桥接模式、组合模式、享元模式 行为型模式（11个）观察者模式、策略模式、模板方法模式、迭代子模式、责任链模式、  命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式  ###工厂方法模式工厂方法分为3类">
+<meta property="og:type" content="article">
 <meta property="og:title" content="赵振业">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/03/22/设计模式/index.html">
 <meta property="og:site_name" content="赵振业">
+<meta property="og:description" content="一、 设计模式的分类大体可以分为三类：  创建型模式（5个）单例模式、原型模式、工厂方法模式、抽象工厂模式、建造者模式 结构性模式（7个）适配器模式、装饰器模式、代理模式、外观模式、桥接模式、组合模式、享元模式 行为型模式（11个）观察者模式、策略模式、模板方法模式、迭代子模式、责任链模式、  命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式  ###工厂方法模式工厂方法分为3类">
 <meta property="og:locale" content="java">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4071226-8eab8fb83f77f62e..PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/4071226-65106c983040657d..PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-03-22T10:58:55.860Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="赵振业">
+<meta name="twitter:description" content="一、 设计模式的分类大体可以分为三类：  创建型模式（5个）单例模式、原型模式、工厂方法模式、抽象工厂模式、建造者模式 结构性模式（7个）适配器模式、装饰器模式、代理模式、外观模式、桥接模式、组合模式、享元模式 行为型模式（11个）观察者模式、策略模式、模板方法模式、迭代子模式、责任链模式、  命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式  ###工厂方法模式工厂方法分为3类">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/4071226-8eab8fb83f77f62e..PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -115,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/22/设计模式/"/>
 
 
 
 
 
-  <title>赵振业</title>
+  <title> | 赵振业</title>
   
 
 
@@ -140,8 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,164 +220,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/22/Android 调用百度导航/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaozy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="赵振业">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/22/Android 调用百度导航/" itemprop="url">Untitled</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-22T18:59:21+08:00">
-                2018-03-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>实现效果：传入高德坐标数据正确调起百度地图导航</p>
-<p>#问题<br>最近项目中需要调用第三方导航（本地Android项目使用的是高德地图的SDK），由于高德地图使用的是火星坐标，百度地图使用的是百度坐标（火星坐标的基础上再次加密），这样就有了坐标转化的问题。</p>
-<p>最开始使用了坐标转化的代码，但是位置有许多偏差（500米以内），后来无意翻看了百度URI的api 发现百度地图提供了 调用百度导航自动转化其他第三方（例如高德地图）经纬度的参数(<em>coord_type</em> 详见注释)，这样就不用本地转换，从而解决偏差的问题</p>
-<p>#解决方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> /**</span><br><span class="line">     * @param destinationLat 目的地维度</span><br><span class="line">     * @param destinationLng 目的地经度</span><br><span class="line">     * @param coord_type     坐标类型  允许的值为bd09ll、bd09mc、gcj02、wgs84。</span><br><span class="line">     *                       bd09ll表示百度经纬度坐标，bd09mc表示百度墨卡托坐标，gcj02表示经过国测局加密的坐标，wgs84表示gps获取的坐标</span><br><span class="line">     * @param mode           导航类型导航模式</span><br><span class="line">     *                       可选transit（公交）、 driving（驾车）、 walking（步行）和riding（骑行）.</span><br><span class="line">     * @param src            必选参数，格式为：appName  不传此参数，不保证服务</span><br><span class="line">     */</span><br><span class="line">public void startBaiduNavi(Context context, String destinationLat, String destinationLng, String coord_type, String mode, String src) &#123;</span><br><span class="line">        Intent i1 = new Intent();</span><br><span class="line">        i1.setData(Uri.parse(&quot;baidumap://map/direction?destination=&quot; +</span><br><span class="line">                destinationLat + &quot;,&quot; + destinationLng + &quot;&amp;coord_type=&quot; + coord_type +</span><br><span class="line">                &quot;&amp;mode=&quot; + mode + &quot;&amp;src=&quot; + src + &quot;#Intent;scheme=bdapp;package=com.baidu.BaiduMap;end&quot;));</span><br><span class="line"></span><br><span class="line">        context.startActivity(i1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>#拓展</p>
-<p>参考文档：<a href="http://lbsyun.baidu.com/index.php?title=uri/api/android" target="_blank" rel="noopener">百度地图 Android URI AIP </a> </p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>别名</th>
-<th>获取方式</th>
-<th>应用场合</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>wgs84</td>
-<td>地球坐标</td>
-<td>从 GPS 设备中获取的坐标数据</td>
-<td>国际地图提供商，谷歌国际地图</td>
-</tr>
-<tr>
-<td>gcj02</td>
-<td>火星坐标，国测局坐标</td>
-<td>从国行移动设备中定位获取的坐标数据</td>
-<td>高德地图，谷歌地图，腾讯地图，阿里云地图</td>
-</tr>
-<tr>
-<td>bd09</td>
-<td>百度坐标</td>
-<td>百度在火星坐标上二次加密后的坐标数据</td>
-<td>百度地图</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -401,9 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/22/设计模式/" itemprop="url">Untitled</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -453,9 +302,7 @@
       
 
       
-        
-          
-            <h1 id="一、-设计模式的分类"><a href="#一、-设计模式的分类" class="headerlink" title="一、 设计模式的分类"></a>一、 设计模式的分类</h1><p>大体可以分为三类：</p>
+        <h1 id="一、-设计模式的分类"><a href="#一、-设计模式的分类" class="headerlink" title="一、 设计模式的分类"></a>一、 设计模式的分类</h1><p>大体可以分为三类：</p>
 <ul>
 <li>创建型模式（5个）<br>单例模式、原型模式、工厂方法模式、抽象工厂模式、建造者模式</li>
 <li>结构性模式（7个）<br>适配器模式、装饰器模式、代理模式、外观模式、桥接模式、组合模式、享元模式</li>
@@ -488,8 +335,6 @@
 <p>最后输出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">send a message by MessageSender</span><br></pre></td></tr></table></figure></p>
 <p>待续，未完…</p>
 
-          
-        
       
     </div>
     
@@ -506,152 +351,32 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/22/android 面试题汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhaozy">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="赵振业">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/22/android 面试题汇总/" itemprop="url">Untitled</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-22T18:57:38+08:00">
-                2018-03-22
-              </time>
+              <a href="/2018/03/22/android 面试题汇总/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
+              <a href="/2018/03/22/Android 调用百度导航/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
             
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>1：抽象类和接口的区别？为什么这么设计？项目中怎么运用他们的？</p>
-<p>2：数组和列表的区别？</p>
-<p>3：Android线程和java的线程有什么区别？</p>
-<p>4：线程是如何关闭的？</p>
-<p>5：如何保证一个serviece不被系统杀死，一直运行；</p>
-<p>6：回调实现的步骤；</p>
-<p>7：Android的生命周期；</p>
-<p>8：Activity的启动模式；SingleTask在内存怎么存在的？</p>
-<p>9：进程守护；</p>
-<p>10：如何判断应用是点击Home键启动的？</p>
-<p>11：你认为计算机原理哪些部分是比较重要的？</p>
-<p>12：哪些集合是线程安全的？哪些是线程不安全的？</p>
-<p>13：单项链表和双向链表的区别？</p>
-<p>14：微信支付怎么开展的，遇到哪些问题？</p>
-<p>15：Htpps怎么做的？</p>
-<p>16：看过哪些源码？实现原理是什么？</p>
-<p>17：加密怎么做的？</p>
-<p>18：NDK怎么实现的；</p>
-<p>19：开发中JS交互怎么做的？</p>
-<p>今天先把这两天面试的问题汇总一下，明天开始给出解答；</p>
-<p>感想：如果你现在的工作太过于安逸，建议去市场试一下水，看看现在什么行情，企业都需要什么技能的人才；本以为很多问题自己都知道，但是详细问的时候，自己却又说不出啦，这就是知其然不知其所以然导致的，建议学技术的要有钻牛角尖的精神，遇事多思考，多总结；</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -661,10 +386,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -672,6 +398,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -692,8 +422,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -735,6 +474,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、-设计模式的分类"><span class="nav-number">1.</span> <span class="nav-text">一、 设计模式的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象工厂模式"><span class="nav-number">1.0.1.</span> <span class="nav-text">抽象工厂模式</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -868,6 +623,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
