@@ -182,7 +182,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -192,7 +192,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -215,6 +215,139 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/singleton/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhaozy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="赵振业">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/23/singleton/" itemprop="url">Java 设计模式DesignPattern之单例模式Singleton</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-23T15:32:33+08:00">
+                2018-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##<strong><a href="https://zhaozhenye.github.io/" target="_blank" rel="noopener">我的博客</a></strong></p>
+<p>单例模式是我们经常用到的设计模式。<br><em>优点</em>：如果对象的数据量比较大，单例模式可以避免重复的创建对象，保证内存中只有一份实例<br><em>缺点</em>：不易被销毁，只有程序退出才会被销毁</p>
+<p>首先，看一下简单的步骤</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 私有静态实例，防止被引用。此处赋值null是为了实现延迟加载</span><br><span class="line">     */</span><br><span class="line">    private static Singleton singleton = null;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 私有构造方法，防止被实例化</span><br><span class="line">     */</span><br><span class="line">    private Singleton() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 公共、静态的方法,创建实例</span><br><span class="line">     *</span><br><span class="line">     * @return Singleton</span><br><span class="line">     */</span><br><span class="line">    public static Singleton getInstance() &#123;</span><br><span class="line">        if (singleton == null) &#123;</span><br><span class="line">            singleton = new Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        return singleton;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果考虑多线程的情况，就可能出现创建多个实例的问题了。例如现在又两个线程，线程A和线程B，如果线程A正在创建实例，线程B访问  if (singleton == null) 判断，就会再次进入new Singleton()这行代码，这就出现创建两次实例的情况。为了避免这种情况，我们可以使用同步锁synchronized关键字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static synchronized Singleton getInstance() &#123;</span><br><span class="line">    if (singleton == null) &#123;</span><br><span class="line">        singleton = new Singleton();</span><br><span class="line">    &#125;</span><br><span class="line">    return singleton;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样就保证不会出现多线程访问造成多实例的问题了。但是这里有性能问题：每次获取实例都需要获取锁，很耗费性能。其实我们只需要第一次实例化的时候用到锁。那好，我们改良一下代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public static  Singleton getInstance() &#123;</span><br><span class="line">    if (singleton == null) &#123;</span><br><span class="line">        synchronized (Singleton.class)&#123;</span><br><span class="line">            if (singleton == null)&#123;</span><br><span class="line">                singleton = new Singleton();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return singleton;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样我们就保证了只对第一次实例化的情况使用了锁。但是，这里还有一个问题：由于指针重排序，造成实例还没有初始化就开始使用实例的情况。<br>在这里，需要温习一下java的基础知识：、<br>singleton = new Singleton()<br>这行代码都进行了哪些操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">memory = allocate();   //1：分配对象的内存空间</span><br><span class="line">ctorInstance(memory);  //2：初始化对象</span><br><span class="line">instance = memory;     //3：设置instance指向刚分配的内存地址</span><br></pre></td></tr></table></figure></p>
+<p>上述伪代码中2和3可能重新排序，出现下面的情况<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">memory = allocate();   //1：分配对象的内存空间</span><br><span class="line">instance = memory;     //3：设置instance指向刚分配的内存地址</span><br><span class="line">                       //注意，此时对象还没有被初始化！</span><br><span class="line">ctorInstance(memory);  //2：初始化对象</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/4071226-093f8868eaf92390.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>此时线程B就会访问一个没有初始化的对象，出现异常。为了解决上述情况，我们需要稍微修改一下代码即可：把instance 声明为volatile类型，就可以实现线程安全的延迟初始化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">private volatile static Singleton singleton = null;</span><br><span class="line">    public static  Singleton getInstance() &#123;</span><br><span class="line">        if (singleton == null) &#123;</span><br><span class="line">            synchronized (Singleton.class)&#123;</span><br><span class="line">                if (singleton == null)&#123;</span><br><span class="line">                    singleton = new Singleton();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return singleton;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>关于volatile的作用，只需要知道使用volatile上述伪代码中的指针重新排序将被禁止就行.</p>
+<p>上述代码已经是线程安全的单例模式了，基于volatile的双重检查锁定（DOUBLE_CHECK）的解决方案。但是代码过于复杂。接下来介绍一种最简单也是最安全的单例模式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 获得单例</span><br><span class="line"> *</span><br><span class="line"> * @return</span><br><span class="line"> */</span><br><span class="line">public static Singleton getInstance() &#123;</span><br><span class="line">    return InstanceHolder.INSTANCE;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 单例持有器</span><br><span class="line"> */</span><br><span class="line">private static final class InstanceHolder &#123;</span><br><span class="line">    private static final Singleton INSTANCE = new Singleton();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 禁止构造</span><br><span class="line"> */</span><br><span class="line">private Singleton() &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这种是基于类初始化的一种解决方案。JVM在类的初始化阶段（即在Class被加载后，且被线程使用之前），会执行类的初始化。在执行类的初始化期间，JVM会去获取一个锁。这个锁可以同步多个线程对同一个类的初始化。基于这个特性，可以实现另一种线程安全的延迟初始化方案（这个方案被称之为Initialization On Demand Holder idiom）</p>
+<p>总结:<br>延迟初始化降低了初始化类或创建实例的开销，但增加了访问被延迟初始化的字段的开销。在大多数时候，正常的初始化要优于延迟初始化。如果确实需要对实例字段使用线程安全的延迟初始化，请使用上面介绍的基于volatile的延迟初始化的方案；如果确实需要对静态字段使用线程安全的延迟初始化，请使用上面介绍的基于类初始化的方案。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -258,7 +391,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-22T18:59:21+08:00">
                 2018-03-22
@@ -413,7 +546,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-22T18:58:19+08:00">
                 2018-03-22
@@ -564,7 +697,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-22T18:57:38+08:00">
                 2018-03-22
@@ -708,8 +841,8 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -721,8 +854,8 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">Tags</span>
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
                 
               </div>
             
@@ -768,7 +901,7 @@
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
